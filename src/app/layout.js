@@ -1,5 +1,7 @@
+// src/layout.js
+import { AuthProvider } from "@lib/authContext";
+import Navbar from "@components/navbar";
 import localFont from "next/font/local";
-import Link from "next/link";
 import "./globals.css";
 
 // Configuración de las fuentes locales
@@ -25,25 +27,14 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-        <header className="navbar-bg-green p-4 shadow-md">
-          <nav>
-            <ul className="flex justify-center space-x-8 text-lg font-medium">
-              <li>
-                <Link href="/authentication/login" className="navbar-link hover:text-secondary-color transition-colors">
-                  Iniciar sesión
-                </Link>
-              </li>
-              <li>
-                <Link href="/authentication/register" className="navbar-link hover:text-secondary-color transition-colors">
-                  Registrarse
-                </Link>
-              </li>
-            </ul>
-          </nav>
-        </header>
-        <main className="min-h-screen bg-foreground py-8 px-4">
-          {children}
-        </main>
+        <AuthProvider>
+          <header className="navbar-bg-green p-4 shadow-md">
+            <Navbar />
+          </header>
+          <main className="min-h-screen bg-foreground py-8 px-4">
+            {children}
+          </main>
+        </AuthProvider>
       </body>
     </html>
   );

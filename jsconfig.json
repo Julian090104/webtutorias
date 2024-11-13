@@ -5,7 +5,8 @@
       "@services/*": ["src/services/*"],
       "@components/*": ["src/components/*"],
       "@app/*": ["src/app/*"],
-      "@authentication/*": ["src/app/authentication/*"]
+      "@authentication/*": ["src/app/authentication/*"],
+      "@lib/*": ["src/lib/*"]
     }
   }
 }

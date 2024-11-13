@@ -7,55 +7,35 @@ export default function Home() {
         {/* Logo */}
         <Image
           className="dark:invert"
-          src="/logo.svg" // Asegúrate de tener tu logo en la carpeta 'public'
+          src="/WTOimg.png" // Asegúrate de tener tu logo en la carpeta 'public'
           alt="Logo de tu página"
           width={180}
           height={38}
           priority
         />
+        
         {/* Título principal */}
         <h1 className="text-4xl sm:text-5xl font-bold text-primary">
-          Bienvenido a Nuestra Página
+          ¡Bienvenidos a Nuestra Página!
         </h1>
+        
         {/* Descripción */}
         <p className="text-lg sm:text-xl text-secondary max-w-md mx-auto">
-          ¡Estamos encantados de que estés aquí! Explora nuestro contenido y
-          disfruta de la experiencia.
+          ¡Estamos encantados de que estés aquí! Explora de nuestro contenido y disfruta la experiencia.
         </p>
-
-        {/* Botones */}
-        <div className="flex flex-col sm:flex-row gap-4 sm:gap-8 mt-8 w-full sm:w-auto">
-          <a
-            className="btn-primary w-full sm:w-auto text-center py-3 px-6 rounded-lg bg-green-500 text-white hover:bg-green-600 transition duration-300"
-            href="/about" // Enlace a una página importante como "Sobre nosotros"
-          >
-            Conoce más sobre nosotros
-          </a>
-          <a
-            className="btn-secondary w-full sm:w-auto text-center py-3 px-6 rounded-lg bg-blue-500 text-white hover:bg-blue-600 transition duration-300"
-            href="/contact" // Enlace a la página de contacto
-          >
-            Contacta con nosotros
-          </a>
-        </div>
+        
+        {/* Sección "¿Qué somos?" */}
+        <h2 className="text-3xl sm:text-4xl font-bold text-primary">
+          ¿Qué somos?
+        </h2>
+        <p className="text-lg sm:text-xl text-secondary max-w-md mx-auto">
+          Esta es una plataforma de tutorías en línea diseñada para conectar estudiantes y tutores de forma rápida y fácil. Podrás ingresar como estudiante y aprender de distintos temas que suben múltiples tutores, o ingresar como tutor y crear tu propio curso sobre lo que más sabes y quieras explicarles a los demás.
+        </p>
       </main>
 
-      {/* Pie de página */}
-      <footer className="mt-16 text-sm text-gray-600">
-        <div className="flex justify-center gap-6">
-          <a
-            href="/privacy-policy" // Enlace a la política de privacidad
-            className="hover:underline"
-          >
-            Política de privacidad
-          </a>
-          <a
-            href="/terms" // Enlace a los términos y condiciones
-            className="hover:underline"
-          >
-            Términos y condiciones
-          </a>
-        </div>
+      {/* Pie de página minimalista */}
+      <footer className="mt-16 text-sm text-gray-600 text-center">
+        © {new Date().getFullYear()} Todos los derechos reservados.
       </footer>
     </div>
   );

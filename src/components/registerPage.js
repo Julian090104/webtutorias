@@ -1,20 +1,20 @@
 "use client";
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { registerUser } from '@services/firebaseAuth'; // Importa la función para registrar usuarios
-import AuthForm from '@components/authForm'; // Importa el formulario común
+import { registerUser } from '@services/firebaseAuth'; // Asegúrate de tener la ruta correcta
+import AuthForm from '@components/authForm';
 
 export default function RegisterPage() {
   const [error, setError] = useState('');
   const router = useRouter();
 
-  const handleRegister = async (e, email, password) => {
+  const handleRegister = async (e, name, email, password) => {
     e.preventDefault();
     try {
-      await registerUser(email, password);
+      await registerUser(name, email, password); // Incluye el nombre en el registro
       router.push('/authentication/login'); // Redirige a la página de login después del registro
     } catch (error) {
-      setError(error.message); // Muestra el error si ocurre
+      setError(error.message);
     }
   };
 

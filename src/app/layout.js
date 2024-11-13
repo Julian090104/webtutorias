@@ -25,14 +25,18 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-        <header className="bg-background p-4 shadow-md">
+        <header className="navbar-bg-green p-4 shadow-md">
           <nav>
             <ul className="flex justify-center space-x-8 text-lg font-medium">
               <li>
-                <Link href="/authentication/login" className="hover:text-primary transition-colors">Login</Link>
+                <Link href="/authentication/login" className="navbar-link hover:text-secondary-color transition-colors">
+                  Iniciar sesión
+                </Link>
               </li>
               <li>
-                <Link href="/authentication/register" className="hover:text-primary transition-colors">Register</Link>
+                <Link href="/authentication/register" className="navbar-link hover:text-secondary-color transition-colors">
+                  Registrarse
+                </Link>
               </li>
             </ul>
           </nav>

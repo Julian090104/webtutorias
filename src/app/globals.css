@@ -3,33 +3,45 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Establece las variables para el fondo y colores generales */
+/* Variables de colores para fondo y elementos */
 :root {
   --background: #ffffff; /* Fondo principal blanco */
-  --primary-color: #4CAF50; /* Color primario para botones y elementos destacados */
+  --foreground: #333333; /* Color de texto principal */
+  --primary-color: #4CAF50; /* Color primario para botones y enlaces destacados */
   --secondary-color: #f0f0f0; /* Fondo suave para áreas secundarias */
-  --content-background: #ffffff; /* Fondo de contenido (blanco) */
+  --content-background: #ffffff; /* Fondo de contenido */
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #ffffff; /* Mantener fondo blanco incluso en modo oscuro */
-    --foreground: #333333; /* Texto oscuro */
+    --background: #ffffff;
+    --foreground: #333333;
     --primary-color: #45a049;
-    --secondary-color: #f0f0f0; /* Para mantener un contraste adecuado */
-    --content-background: #ffffff; /* Fondo de contenido blanco también en oscuro */
+    --secondary-color: #f0f0f0;
+    --content-background: #ffffff;
   }
 }
 
+/* Estilos globales */
 body {
-  color: var(--foreground); /* Solo el color del texto */
-  background: var(--background); /* Fondo blanco para todo */
+  color: var(--foreground);
+  background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
   margin: 0;
   padding: 0;
 }
 
-/* Estilos generales de los encabezados */
+/* Estilos del navbar */
+.navbar-bg-green {
+  background-color: var(--primary-color);
+}
+
+.navbar-link {
+  color: white;
+  text-decoration: underline;
+}
+
+/* Estilos para encabezados */
 h1, h2, h3, h4 {
   margin: 0;
   font-weight: 600;
@@ -52,7 +64,7 @@ h3 {
 
 /* Sección de encabezado */
 header {
-  background-color: var(--background); /* Fondo blanco en el encabezado */
+  background-color: var(--background);
   padding: 20px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
@@ -73,7 +85,7 @@ header nav ul li a:hover {
   color: var(--primary-color);
 }
 
-/* Estilos para la página de inicio (Home) */
+/* Estilos principales de la página */
 main {
   display: flex;
   flex-direction: column;
@@ -81,7 +93,7 @@ main {
   align-items: center;
   padding: 40px;
   text-align: center;
-  background-color: var(--content-background); /* Fondo blanco */
+  background-color: var(--content-background);
 }
 
 main .logo {
@@ -115,11 +127,11 @@ main a:hover {
   background-color: #45a049;
 }
 
-/* Sección de pie de página (footer) */
+/* Estilos para el pie de página */
 footer {
   padding: 20px;
   text-align: center;
-  background-color: var(--background); /* Fondo blanco en el pie de página */
+  background-color: var(--background);
   border-top: 1px solid #ddd;
 }
 
@@ -138,7 +150,7 @@ form {
   max-width: 400px;
   margin: 0 auto;
   padding: 20px;
-  background-color: var(--background); /* Fondo blanco */
+  background-color: var(--background);
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
@@ -165,8 +177,8 @@ button:hover {
 }
 
 input {
-  background-color: var(--background); /* Fondo blanco para inputs */
-  color: var(--foreground); /* Solo el color del texto */
+  background-color: var(--background);
+  color: var(--foreground);
   border-color: #ddd;
 }
 
@@ -180,7 +192,7 @@ a:hover, button:hover {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-/* Estilos para dispositivos pequeños */
+/* Responsive design para dispositivos pequeños */
 @media (max-width: 640px) {
   h1 {
     font-size: 1.5rem;

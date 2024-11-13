@@ -1,5 +1,6 @@
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth';
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile } from 'firebase/auth';
 import { initializeApp } from 'firebase/app';
+import { getFirestore, doc, setDoc } from 'firebase/firestore';
 
 // Aquí debes colocar tu configuración de Firebase
 const firebaseConfig = {
@@ -14,15 +15,29 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig); // Inicializa la app con Firebase
 const auth = getAuth(app); // Autenticación de Firebase
+const db = getFirestore(app); // Firestore
 
-export const registerUser = async (email, password) => {
+// Función para registrar usuario con nombre
+export const registerUser = async (name, email, password) => {
   try {
-    await createUserWithEmailAndPassword(auth, email, password); // Registra un nuevo usuario
+    const userCredential = await createUserWithEmailAndPassword(auth, email, password); // Registra un nuevo usuario
+    const user = userCredential.user;
+
+    // Actualiza el nombre del usuario en el perfil de Firebase Auth
+    await updateProfile(user, { displayName: name });
+
+    // Agregar el nombre en Firestore (puedes agregar más campos según sea necesario)
+    await setDoc(doc(db, 'users', user.uid), {
+      name,
+      email,
+    });
+
   } catch (error) {
     throw error; // Lanza el error para ser capturado en el componente
   }
 };
 
+// Función de login
 export const loginUser = async (email, password) => {
   try {
     await signInWithEmailAndPassword(auth, email, password); // Inicia sesión

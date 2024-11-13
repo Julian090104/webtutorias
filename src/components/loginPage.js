@@ -12,7 +12,7 @@ export default function LoginPage() {
     e.preventDefault();
     try {
       await loginUser(email, password);
-      router.push('/'); // Redirige a la página principal después de iniciar sesión
+      router.push('/authentication/courseList'); // Redirige a la página principal después de iniciar sesión
     } catch (error) {
       setError(error.message); // Muestra el error si ocurre
     }

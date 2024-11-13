@@ -4,7 +4,7 @@ import { getFirestore, doc, setDoc } from 'firebase/firestore';
 
 // Aquí debes colocar tu configuración de Firebase
 const firebaseConfig = {
-  apiKey: "AIzaSyAqxjD09CGrYtlscSuEP5yfTgGZ32QunZw",
+  apiKey: "",
   authDomain: "wtoup-96494.firebaseapp.com",
   projectId: "wtoup-96494",
   storageBucket: "wtoup-96494.firebasestorage.app",

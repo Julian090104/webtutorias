@@ -1,4 +1,5 @@
 import Image from "next/image";
+import CourseList from "@components/courseListPage";
 
 export default function Home() {
   return (

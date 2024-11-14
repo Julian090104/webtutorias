@@ -1,4 +1,3 @@
-// src/components/navbar.js
 "use client"; // Asegura que el componente se renderice en el cliente
 
 import Link from "next/link";
@@ -21,31 +20,45 @@ const Navbar = () => {
 
   return (
     <nav>
-      <ul className="flex justify-center space-x-8 text-lg font-medium">
+      <ul className={`flex w-full px-8 text-lg font-medium ${user ? "logged-in" : ""}`}>
         {!user ? (
           <>
             <li>
-              <Link href="/authentication/login" className="navbar-link hover:text-secondary-color transition-colors">
+              <Link
+                href="/authentication/login"
+                className="navbar-link hover:text-secondary-color transition-colors"
+              >
                 Iniciar sesión
               </Link>
             </li>
             <li>
-              <Link href="/authentication/register" className="navbar-link hover:text-secondary-color transition-colors">
+              <Link
+                href="/authentication/register"
+                className="navbar-link hover:text-secondary-color transition-colors"
+              >
                 Registrarse
               </Link>
             </li>
           </>
         ) : (
           <>
+            {/* Perfil y Cerrar sesión a la derecha cuando está logueado */}
             <li>
-              <Link href="/profile" className="navbar-link hover:text-secondary-color transition-colors">
+              <Link
+                href="/profile"
+                className="navbar-link hover:text-secondary-color transition-colors"
+              >
                 Perfil
               </Link>
             </li>
             <li>
-              <button onClick={handleLogout} className="navbar-link hover:text-secondary-color transition-colors">
+              <a
+                href="#"
+                className="logout navbar-link hover:text-secondary-color transition-colors"
+                onClick={handleLogout}
+              >
                 Cerrar sesión
-              </button>
+              </a>
             </li>
           </>
         )}

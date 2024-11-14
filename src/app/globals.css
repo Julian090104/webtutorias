@@ -37,8 +37,34 @@ body {
 }
 
 .navbar-link {
-  color: white;
+  color: var(--foreground);
   text-decoration: underline;
+  font-size: 1.2rem;
+  padding: 0; /* Elimina cualquier padding adicional */
+  border: none; /* Quitar bordes */
+  background: none; /* Elimina cualquier fondo */
+  display: inline-block; /* Asegura que el texto no tenga espacio adicional */
+}
+
+.navbar-link:hover {
+  color: var(--primary-color);
+  text-decoration: underline; /* Mantén el subrayado en hover */
+}
+
+/* Estilos del navbar */
+header nav ul {
+  display: flex;
+  justify-content: center; /* Esto centra los elementos cuando no está logueado */
+  gap: 20px;
+}
+
+header nav ul.logged-in {
+  justify-content: flex-end; /* Esto alinea los elementos de la derecha cuando está logueado */
+}
+
+header nav ul li {
+  display: flex;
+  align-items: center; /* Centrado vertical de los elementos */
 }
 
 /* Estilos para encabezados */

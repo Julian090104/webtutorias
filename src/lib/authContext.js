@@ -1,4 +1,3 @@
-// src/lib/authContext.js
 "use client";
 import { createContext, useContext, useState, useEffect } from 'react';
 import { onAuthStateChanged } from 'firebase/auth';
@@ -12,10 +11,13 @@ export const AuthProvider = ({ children }) => {
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-      console.log('Verificando autenticación...');
-      setUser(currentUser);
+      // No filtramos por emailVerified para permitir login sin verificación
+      if (currentUser) {
+        setUser(currentUser);
+      } else {
+        setUser(null);
+      }
       setLoading(false); // Cambiar a false cuando se haya cargado la información
-      console.log('Estado de autenticación:', currentUser ? 'Logueado' : 'No logueado');
     });
     return unsubscribe;
   }, []);

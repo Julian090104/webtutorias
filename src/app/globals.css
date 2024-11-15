@@ -37,13 +37,14 @@ body {
 }
 
 .navbar-link {
-  color: var(--foreground);
+  color: var(--background);
   text-decoration: underline;
   font-size: 1.2rem;
   padding: 0; /* Elimina cualquier padding adicional */
   border: none; /* Quitar bordes */
   background: none; /* Elimina cualquier fondo */
   display: inline-block; /* Asegura que el texto no tenga espacio adicional */
+  font-weight: bold; /* Aplica negrilla */
 }
 
 .navbar-link:hover {

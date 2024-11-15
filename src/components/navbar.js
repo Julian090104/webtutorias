@@ -1,5 +1,4 @@
-"use client"; // Asegura que el componente se renderice en el cliente
-
+"use client"; 
 import Link from "next/link";
 import { useAuth } from "@lib/authContext";
 import { auth } from "@services/firebaseAuth";
@@ -9,13 +8,13 @@ const Navbar = () => {
 
   const handleLogout = async () => {
     await auth.signOut();
+    console.log("User has logged out");
   };
 
-  console.log("Navbar renderizado. Estado de loading:", loading);
+  console.log("Navbar renderizado. Estado de loading:", loading, "Usuario:", user);
 
-  // Si aún se está verificando el estado de autenticación, no mostrar el navbar
   if (loading) {
-    return <div>Loading...</div>; // Mostrar un mensaje de carga mientras se verifica el estado
+    return null; // No mostrar nada hasta que el estado de autenticación esté listo
   }
 
   return (
@@ -42,7 +41,6 @@ const Navbar = () => {
           </>
         ) : (
           <>
-            {/* Perfil y Cerrar sesión a la derecha cuando está logueado */}
             <li>
               <Link
                 href="/profile"

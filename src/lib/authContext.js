@@ -7,23 +7,20 @@ const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
+    setLoading(true); // Activar el estado de carga
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-      // No filtramos por emailVerified para permitir login sin verificación
-      if (currentUser) {
-        setUser(currentUser);
-      } else {
-        setUser(null);
-      }
-      setLoading(false); // Cambiar a false cuando se haya cargado la información
+      setUser(currentUser);
+      setLoading(false); // Desactivar el estado de carga al obtener respuesta
     });
+
     return unsubscribe;
   }, []);
 
   return (
-    <AuthContext.Provider value={{ user, setUser, loading }}>
+    <AuthContext.Provider value={{ user, loading }}>
       {children}
     </AuthContext.Provider>
   );

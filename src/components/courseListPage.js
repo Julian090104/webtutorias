@@ -11,6 +11,7 @@ const CourseList = () => {
 
   return (
     <div className="flex flex-col items-center p-6">
+      <h1>Sesion Iniciada</h1>
       <h2 className="text-3xl font-bold mb-8">CURSOS</h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
         {courses.map((course, index) => (

@@ -29,15 +29,14 @@ export default function Home() {
         <h2 className="text-3xl sm:text-4xl font-bold text-primary">
           ¿Qué somos?
         </h2>
-        <p className="text-lg sm:text-xl text-secondary max-w-md mx-auto">
-          Esta es una plataforma de tutorías en línea diseñada para conectar estudiantes y tutores de forma rápida y fácil. Podrás ingresar como estudiante y aprender de distintos temas que suben múltiples tutores, o ingresar como tutor y crear tu propio curso sobre lo que más sabes y quieras explicarles a los demás.
+        
+        <p className="text-lg sm:text-xl text-secondary max-w-md mx-auto leading-relaxed">
+          Esta es una plataforma de tutorías en línea diseñada para conectar estudiantes y tutores de forma rápida y fácil. <br/>
+          Podrás ingresar como estudiante y aprender de distintos temas que suben múltiples tutores, <br/>
+          o ingresar como tutor y crear tu propio curso sobre lo que más sabes y quieras explicarles a los demás.
         </p>
-      </main>
 
-      {/* Pie de página minimalista */}
-      <footer className="mt-16 text-sm text-gray-600 text-center">
-        © {new Date().getFullYear()} Todos los derechos reservados.
-      </footer>
+      </main>
     </div>
   );
 }

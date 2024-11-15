@@ -45,3 +45,5 @@ export const loginUser = async (email, password) => {
     throw error; // Lanza el error para ser capturado en el componente
   }
 };
+
+export { auth };

@@ -1,8 +1,9 @@
+// src/app/authentication/login.js
 "use client";
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { loginUser } from '@services/firebaseAuth'; // Importa la función para iniciar sesión
-import AuthForm from '@components/authForm'; // Importa el formulario común
+import { loginUser } from '@services/firebaseAuth'; // Asegúrate de que esta ruta es correcta
+import AuthForm from '@components/authForm';
 
 export default function LoginPage() {
   const [error, setError] = useState('');
@@ -11,8 +12,8 @@ export default function LoginPage() {
   const handleLogin = async (e, email, password) => {
     e.preventDefault();
     try {
-      await loginUser(email, password);
-      router.push('/authentication/courseList'); // Redirige a la página principal después de iniciar sesión
+      await loginUser(email, password); // Inicia sesión
+      router.push('/authentication/courseList'); // Redirige a la página de courseList después de iniciar sesión
     } catch (error) {
       setError(error.message); // Muestra el error si ocurre
     }
